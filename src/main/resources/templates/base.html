@@ -1,0 +1,15 @@
+
+<!-- this is a test fragment-->
+
+<div th:fragment="parent(x,y)">
+    <h1>this is a parent fragment</h1>
+    <p>lorem ipsum dolor sit amet sik ps</p>
+    <h1>Value of x is <span th:text="${x}"></span></h1>
+    <h1>Value of y is <span th:text="${y}"></span></h1>
+</div>
+
+<div th:fragment="contentBased(content)">
+    <h1>this is a content-based fragment</h1>
+    <p>lorem ipsum dolor sit amet sik ps</p>
+    <h1>Value of content is <span th:replace="${content}"></span></h1>
+</div>

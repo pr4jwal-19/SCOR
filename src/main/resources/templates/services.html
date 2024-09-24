@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Services Page</title>
+</head>
+<body>
+<h1>This is the Services Page</h1>
+<hr>
+<div>
+    <h1>This is a Service Fragment by Replace</h1>
+    <div th:replace="~{base :: parent('Service One','Service Two')}"></div>
+</div>
+<div>
+    <h1>Fragment insertion using ID</h1>
+    <div th:replace="~{base :: contentBased(~{::#serviceSection})}">
+        <section id="serviceSection">
+            <h1>This is a dynamic content</h1>
+            <button>Click Here</button>
+        </section>
+    </div>
+</div>
+</body>
+</html>

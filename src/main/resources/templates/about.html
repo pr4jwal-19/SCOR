@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About</title>
+</head>
+<body>
+<h1>This is the About Page</h1>
+<hr>
+<!-- using fragment -->
+<!-- Using replace tag: It replaces the host tag -->
+<!-- Using insert tag: It inserts inside the host tag -->
+<div th:insert="~{base :: parent('one','two')}"></div>
+<div th:replace="~{base :: contentBased(~{::section})}">
+    <section>
+        <h1>this is a dynamic content</h1>
+        <button>Click Here</button>
+    </section>
+</div>
+</body>
+</html>
