@@ -1,21 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
+
+
+<!doctype html>
+<html lang="en"
+      data-th-replace="~{base::parent(~{::#content},~{::#main-title},~{::script},~{})}">
 <head>
-    <meta charset="UTF-8">
-    <title>About</title>
+    <title id="main-title">About</title>
 </head>
 <body>
-<h1>This is the About Page</h1>
-<hr>
-<!-- using fragment -->
-<!-- Using replace tag: It replaces the host tag -->
-<!-- Using insert tag: It inserts inside the host tag -->
-<div th:insert="~{base :: parent('one','two')}"></div>
-<div th:replace="~{base :: contentBased(~{::section})}">
-    <section>
-        <h1>this is a dynamic content</h1>
-        <button>Click Here</button>
-    </section>
+<div id="content">
+    <!-- this would be passed to the base template in the parameter -->
+    <h1>Welcome to About Page</h1>
+    <p>This is a development phase</p>
 </div>
+<script>
+    console.log('Hello from About Page');
+</script>
+<script>
+    console.log('Hope this development phase will be completed soon');
+</script>
 </body>
 </html>

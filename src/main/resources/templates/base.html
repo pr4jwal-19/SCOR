@@ -1,15 +1,34 @@
+<!doctype html>
+<html
+        lang="en"
+        th:fragment="parent(content,title,script,link)"
+        xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title data-th-replace="${title}">SCOR</title>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet" />
+    <link rel="stylesheet" data-th-href="@{'/css/output.css'}"/>
+    <th:block data-th-replace="${link}"></th:block>
+</head>
+<body>
+<!-- Common Header comes here -->
 
-<!-- this is a test fragment-->
+<div data-th-replace="~{navbar :: navbar}"></div>
 
-<div th:fragment="parent(x,y)">
-    <h1>this is a parent fragment</h1>
-    <p>lorem ipsum dolor sit amet sik ps</p>
-    <h1>Value of x is <span th:text="${x}"></span></h1>
-    <h1>Value of y is <span th:text="${y}"></span></h1>
+<!-- The Main Content comes here dynamically  -->
+<div class="p-4 h-screen w-full mt-16">
+    <section data-th-replace="${content}"></section>
 </div>
 
-<div th:fragment="contentBased(content)">
-    <h1>this is a content-based fragment</h1>
-    <p>lorem ipsum dolor sit amet sik ps</p>
-    <h1>Value of content is <span th:replace="${content}"></span></h1>
-</div>
+<!-- Common Footer comes here -->
+<footer class="bg-gray-200 p-4 text-center">
+    <p>© 2021 SCOR. All Rights Reserved.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
+<th:block data-th-replace="${script}"></th:block>
+</body>
+</html>
