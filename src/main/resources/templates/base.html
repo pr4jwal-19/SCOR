@@ -24,8 +24,8 @@
 <div data-th-replace="~{navbar :: navbar}"></div>
 
 <!-- The Main Content comes here dynamically  -->
-<div class="p-4 h-screen w-full mt-16 dark:bg-gray-300">
-    <section data-th-replace="${content}"></section>
+<div class="p-4 min-h-screen w-full mt-16 dark:bg-gray-300">
+    <section class="pb-16" data-th-replace="${content}"></section>
 </div>
 
 <!-- Common Footer comes here -->
@@ -35,6 +35,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
 <th:block data-th-replace="${script}"></th:block>
-<script data-th-src="@{'/js/script.js'}"></script>
+<script defer data-th-src="@{'/js/script.js'}"></script>
 </body>
 </html>

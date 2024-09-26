@@ -5,8 +5,10 @@ console.log("Script Loaded");
 // initial theme
 let currentTheme = getTheme();
 
-// initially -> change theme
-changeTheme(currentTheme);
+document.addEventListener("DOMContentLoaded", () => {
+    // initially -> change theme
+    changeTheme(currentTheme);
+});
 
 // TODO:
 function changeTheme() {
