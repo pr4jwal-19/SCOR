@@ -41,7 +41,9 @@ public class User {
     // Self, Google , GitHub
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
+    @Builder.Default
     private Providers provider = Providers.SELF;
+
     private String providerUsrId;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)

@@ -11,43 +11,72 @@
 
     <!--- Signup Form --->
     <div class="grid grid-cols-1 sm:grid-cols-8 md:grid-cols-12 xl:grid-cols-12 p-6 sm:p-12">
+
         <!-- Left Part: Empty space for centering the form on medium and large screens -->
         <div class="hidden md:block md:col-span-3 xl:col-span-3"></div>
 
         <!-- Middle Part: Form with responsive column spans -->
         <div class="col-span-1 sm:col-span-8 md:col-span-6 xl:col-span-6">
-            <div class="min-h-screen flex items-center justify-center">
-                <div class="w-full sm:max-w-md lg:max-w-lg xl:max-w-2xl p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
-                    <form class="space-y-6" action="#">
+
+            <!-- Signup form div -->
+            <div class="min-h-screen flex items-center justify-center border-t-blue-700 border-t-4 rounded-lg shadow">
+                <div class="w-full sm:max-w-md lg:max-w-lg xl:max-w-2xl p-4 bg-white rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
+
+                    <!-- Signup form -->
+                    <!-- $ is used when accessing a variable directly (object name) in our case -->
+                    <!-- data-th-object -->
+                    <!-- * is used when accessing a variable of an object directly (object fields) in our case -->
+                    <!-- th:field -->
+
+                    <div data-th-replace="~{message::messageBox}" >
+
+                    </div>
+                    <form
+                            class="space-y-6"
+                            data-th-action="@{'/register'}"
+                            method="post"
+                            data-th-object="${user}">
                         <h5 class="text-xl font-medium text-gray-900 dark:text-white">Sign Up</h5>
                         <p class="font-normal text-gray-500 dark:text-gray-400">Start Managing your Notes and Content Links on the Cloud</p>
                         <div>
-                            <label for="username" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your Username</label>
-                            <input type="text" name="username" id="username" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="mighty_witcher_19" required />
+                            <label for="username" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Username</label>
+                            <input type="text" name="username" id="username" data-th-field="*{userName}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="mighty_witcher_19" required />
                         </div>
                         <div>
-                            <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your Email</label>
-                            <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="name@company.com" required />
+                            <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
+                            <input type="email" name="email" id="email" data-th-field="*{email}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="name@company.com" required />
                         </div>
                         <div>
-                            <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your Password</label>
-                            <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required />
+                            <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">New Password</label>
+                            <input type="password" name="password" id="password" placeholder="••••••••" data-th-field="*{password}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required />
+                        </div>
+                        <div>
+                            <label for="contactNo" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Contact Number</label>
+                            <input type="text" name="contact" id="contactNo" data-th-field="*{phoneNo}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="**********" required />
+                        </div>
+                        <div>
+                            <label for="about" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">About</label>
+                            <textarea id="about" rows="6" data-th-field="*{about}" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Describe yourself..."></textarea>
                         </div>
 
-                        <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Sign Up</button>
+                        <div class="flex justify-between space-x-4">
+                            <button type="submit" id="submit-button" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Sign Up</button>
+                            <button type="reset" id="reset-button" class="w-full text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-orange-700 dark:hover:bg-orange-800 dark:focus:ring-orange-800">Reset</button>
+                        </div>
                         <div class="text-sm font-medium text-gray-500 dark:text-gray-300">
                             Already Registered?
                             <a href="#" class="text-blue-700 hover:underline dark:text-blue-500">Sign In</a>
                         </div>
                     </form>
+
                 </div>
             </div>
+
         </div>
 
         <!-- Right Part: Empty space for centering the form on medium and large screens -->
         <div class="hidden md:block md:col-span-3 xl:col-span-3"></div>
     </div>
-
 
 </div>
 <script>

@@ -18,18 +18,18 @@
           integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
           crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body>
+<body class="bg-gray-100 dark:bg-gray-900 dark:text-white">
 <!-- Common Header comes here -->
 
 <div data-th-replace="~{navbar :: navbar}"></div>
 
 <!-- The Main Content comes here dynamically  -->
-<div class="p-4 min-h-screen w-full mt-16 dark:bg-gray-300">
+<div class="p-4 min-h-screen w-full mt-16">
     <section class="pb-16" data-th-replace="${content}"></section>
 </div>
 
 <!-- Common Footer comes here -->
-<footer class="bg-gray-200 p-4 text-center">
+<footer class="bg-gray-200 dark:bg-gray-900 p-4 text-center">
     <p>© 2024 SCOR. All Rights Reserved.</p>
 </footer>
 
