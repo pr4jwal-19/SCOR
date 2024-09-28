@@ -28,6 +28,7 @@
                     <!-- * is used when accessing a variable of an object directly (object fields) in our case -->
                     <!-- th:field -->
 
+                    <!-- Message Box -->
                     <div data-th-replace="~{message::messageBox}" >
 
                     </div>
@@ -35,28 +36,64 @@
                             class="space-y-6"
                             data-th-action="@{'/register'}"
                             method="post"
-                            data-th-object="${user}">
+                            data-th-object="${userForm}"
+                            novalidate>
                         <h5 class="text-xl font-medium text-gray-900 dark:text-white">Sign Up</h5>
                         <p class="font-normal text-gray-500 dark:text-gray-400">Start Managing your Notes and Content Links on the Cloud</p>
                         <div>
                             <label for="username" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Username</label>
                             <input type="text" name="username" id="username" data-th-field="*{userName}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="mighty_witcher_19" required />
+                            <p
+                                data-th-if="${#fields.hasErrors('userName')}"
+                                data-th-errors="*{userName}"
+                                class="px-1.5 py-2 text-red-600"
+                            >
+                                Username is required
+                            </p>
                         </div>
                         <div>
                             <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
-                            <input type="email" name="email" id="email" data-th-field="*{email}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="name@company.com" required />
+                            <input type="email" name="email" id="email" data-th-field="*{email}" autocomplete="off" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="name@company.com" required />
+                            <p
+                                    data-th-if="${#fields.hasErrors('email')}"
+                                    data-th-errors="*{email}"
+                                    class="px-1.5 py-2 text-red-600"
+                            >
+                                Email is required
+                            </p>
                         </div>
                         <div>
                             <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">New Password</label>
-                            <input type="password" name="password" id="password" placeholder="••••••••" data-th-field="*{password}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required />
+                            <input type="password" name="password" id="password" placeholder="••••••••" data-th-field="*{password}" autocomplete="off" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required />
+                            <p
+                                    data-th-if="${#fields.hasErrors('password')}"
+                                    data-th-errors="*{password}"
+                                    class="px-1.5 py-2 text-red-600"
+                            >
+                                Password is required
+                            </p>
                         </div>
                         <div>
                             <label for="contactNo" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Contact Number</label>
                             <input type="text" name="contact" id="contactNo" data-th-field="*{phoneNo}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="**********" required />
+                            <p
+                                    data-th-if="${#fields.hasErrors('phoneNo')}"
+                                    data-th-errors="*{phoneNo}"
+                                    class="px-1.5 py-2 text-red-600"
+                            >
+                                Invalid Phone Number
+                            </p>
                         </div>
                         <div>
                             <label for="about" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">About</label>
                             <textarea id="about" rows="6" data-th-field="*{about}" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Describe yourself..."></textarea>
+                            <p
+                                    data-th-if="${#fields.hasErrors('about')}"
+                                    data-th-errors="*{about}"
+                                    class="px-1.5 py-2 text-red-600"
+                            >
+                                About is required
+                            </p>
                         </div>
 
                         <div class="flex justify-between space-x-4">
@@ -65,7 +102,7 @@
                         </div>
                         <div class="text-sm font-medium text-gray-500 dark:text-gray-300">
                             Already Registered?
-                            <a href="#" class="text-blue-700 hover:underline dark:text-blue-500">Sign In</a>
+                            <a href="/login" class="text-blue-700 hover:underline dark:text-blue-500">Sign In</a>
                         </div>
                     </form>
 

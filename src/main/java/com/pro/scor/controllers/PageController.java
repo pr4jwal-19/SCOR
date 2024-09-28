@@ -6,9 +6,11 @@ import com.pro.scor.helper.Message;
 import com.pro.scor.helper.MsgType;
 import com.pro.scor.services.UserService;
 import jakarta.servlet.http.HttpSession;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,14 +21,12 @@ public class PageController {
     @Autowired
     private UserService userService;
 
-    // This is a controller handler method that will return a view named home
+    // This is a controller handler method that'll return a view named home
     // for the request URL /home
     @RequestMapping("/home")
     public String home(Model model) {
         // should return a view named home
         // templates → home.html
-        model.addAttribute("name","Prajwal Nakure");
-        model.addAttribute("githubProfile","https://github.com/pr4jwal-19");
         return "home";
     }
     // About route
@@ -56,18 +56,21 @@ public class PageController {
         UserForm userForm = new UserForm();
         // can send default values too
         //userForm.setUserName("Prajwal Nakure");
-        model.addAttribute("user", userForm);
+        model.addAttribute("userForm", userForm);
         return "signup";
     }
 
     // After Signup route
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public String register(@ModelAttribute UserForm userForm, HttpSession session) {
+    public String register(@Valid @ModelAttribute("userForm") UserForm userForm,
+                           BindingResult bindingResult, HttpSession session) {
         // fetch the data from the form
         // UserForm → User
         System.out.println(userForm);
         // validate the data
-        // TODO:: Add validation code here
+        if (bindingResult.hasErrors()){
+            return "signup";
+        }
 
         // if data is valid, then save the data to the database and redirect to login page
         // UserService → saveUser(User user)
