@@ -1,12 +1,14 @@
 package com.pro.scor.services.implementation;
 
 import com.pro.scor.entities.User;
+import com.pro.scor.helper.AppConstants;
 import com.pro.scor.helper.ResourceNotFoundException;
 import com.pro.scor.repo.UserRepo;
 import com.pro.scor.services.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,6 +21,9 @@ public class UsrServiceImpl implements UserService {
     @Autowired
     private UserRepo userRepo;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Override
@@ -26,6 +31,11 @@ public class UsrServiceImpl implements UserService {
         // before saving the user, userId has to be generated automatically
         String userId = UUID.randomUUID().toString();
         user.setUserId(userId);
+        // encrypt the password before saving to the db
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        // set user role
+        user.setRoleList(List.of(AppConstants.ROLE_USER));
+
         logger.info("Saving user with phoneNo: {}", user.getPhoneNo());
         return userRepo.save(user);
     }
@@ -39,7 +49,7 @@ public class UsrServiceImpl implements UserService {
     public Optional<User> updateUser(User user) {
         User userForUpdate = userRepo.findById(user.getUserId()).orElseThrow(() -> new ResourceNotFoundException("User not found"));
         // update the userForUpdate object with the new values from the user object
-        userForUpdate.setUserName(user.getUserName());
+        userForUpdate.setSUserName(user.getSUserName());
         userForUpdate.setEmail(user.getEmail());
         userForUpdate.setPassword(user.getPassword());
         userForUpdate.setAbout(user.getAbout());

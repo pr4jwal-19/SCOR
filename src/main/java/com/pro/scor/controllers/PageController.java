@@ -76,7 +76,7 @@ public class PageController {
         // UserService → saveUser(User user)
         // UserService will have all the business logic for user related operations
         User user = User.builder()
-                .userName(userForm.getUserName())
+                .sUserName(userForm.getUserName())
                 .email(userForm.getEmail())
                 .password(userForm.getPassword())
                 .phoneNo(userForm.getPhoneNo())
