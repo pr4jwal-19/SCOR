@@ -44,6 +44,7 @@ public class User implements UserDetails {
     private boolean isEmailVerified = false;
     private boolean isUserVerified = false;
 
+
     private boolean isAccountNonExpired = true;
     @Getter(AccessLevel.NONE)
     private boolean isAccountNonLocked = true;
@@ -66,6 +67,16 @@ public class User implements UserDetails {
 
     @ElementCollection(fetch = FetchType.EAGER)
     private List<String> roleList = new ArrayList<>();
+
+    @PrePersist
+    public void prePersist() {
+        // Always set the default values to true before persisting
+        this.isAccountNonLocked = true;
+        this.isAccountNonExpired = true;
+        this.isCredentialsNonExpired = true;
+        this.isEnabled = true;
+    }
+
 
     // Returns the collection of roles of the user
     @Override

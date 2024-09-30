@@ -21,6 +21,10 @@ public class PageController {
     @Autowired
     private UserService userService;
 
+    @RequestMapping("/")
+    public String index(){
+        return "redirect:/home";
+    }
     // This is a controller handler method that'll return a view named home
     // for the request URL /home
     @RequestMapping("/home")
@@ -95,6 +99,6 @@ public class PageController {
         // else return the user to the signup page
 
         // return the user to the login page
-        return "redirect:/signup";
+        return "redirect:/login";
     }
 }
