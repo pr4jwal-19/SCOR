@@ -49,7 +49,7 @@ public class PageController {
         return "contact";
     }
     // Login route
-    @RequestMapping("/login")
+    @RequestMapping( "/login")
     public String login() {
         return "login";
     }
@@ -101,4 +101,5 @@ public class PageController {
         // return the user to the login page
         return "redirect:/login";
     }
+
 }
