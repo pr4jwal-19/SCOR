@@ -36,6 +36,9 @@ public class SecurityConfig {
     @Autowired
     private SecurityCustomUserDetailsService userDetailsService;
 
+    @Autowired
+    private OAuthSuccessHandler oAuthSuccessHandler;
+
     // For database authentication using DAO Authentication Provider
     @Bean
     public AuthenticationProvider authenticationProvider(){
@@ -82,9 +85,19 @@ public class SecurityConfig {
 
         });
 
+        // logoutSuccessUrl("/login?logout=true") is used to set the URL
+        // logout is passed as a query parameter
+        // then we can show a message on the login page using this query parameter - logout
         httpSecurity.logout(logoutProcessing -> {
             logoutProcessing.logoutUrl("/logout")
-                    .logoutSuccessUrl("/login");
+                    .logoutSuccessUrl("/login?logout=true");
+
+        });
+
+        // OAuth2 Configurations
+        httpSecurity.oauth2Login(oauth -> {
+            oauth.loginPage("/login");
+            oauth.successHandler(oAuthSuccessHandler);
         });
 
 

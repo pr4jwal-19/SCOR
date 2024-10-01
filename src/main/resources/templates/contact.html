@@ -8,8 +8,54 @@
 </head>
 <body>
 <div id="content">
-    <h1>Welcome to Contact Page</h1>
-    <p>This is a development phase</p>
+    <section class="bg-white dark:bg-gray-900 bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern.svg')] dark:bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern-dark.svg')]">
+        <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 z-10 relative">
+            <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">Get in Touch</h1>
+            <p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 lg:px-48 dark:text-gray-200">We’d love to hear from you! Whether you have questions, feedback, or just want to chat, feel free to reach out.</p>
+
+            <form class="max-w-xl mx-auto">
+                <div class="mb-4">
+                    <input type="text" placeholder="Your Name" class="text-black dark:text-black w-full p-3 border border-gray-300 rounded-lg" required>
+                </div>
+                <div class="mb-4">
+                    <input type="email" placeholder="Your Email" class="text-black dark:text-black w-full p-3 border border-gray-300 rounded-lg" required>
+                </div>
+                <div class="mb-4">
+                    <textarea placeholder="Your Message" rows="4" class="text-black dark:text-black w-full p-3 border border-gray-300 rounded-lg" required></textarea>
+                </div>
+                <button type="submit" class="py-2.5 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
+                    Send Message
+                </button>
+            </form>
+
+            <div class="mt-8">
+                <h2 class="dark:text-white text-lg font-semibold text-gray-800 mb-2">Contact Information</h2>
+                <p class="text-gray-400">Email: <a href="mailto:info@app-scor.com" class="text-blue-500 hover:underline">info@app-scor.com</a></p>
+                <p class="text-gray-400">Phone: <a href="tel:+917720928263" class="text-blue-500 hover:underline">+917720928263</a></p>
+            </div>
+
+            <section class="bg-white dark:bg-gray-900 py-8">
+                <div class="py-8 px-4 mx-auto max-w-screen-md text-center lg:py-16">
+                    <h2 class="mb-4 text-4xl font-extrabold text-gray-900 dark:text-white">Feedback & Issues</h2>
+                    <p class="mb-6 text-lg font-normal text-gray-500 dark:text-gray-400">
+                        For general feature requests and bug reports, please open an issue or discussion on our GitHub repository.
+                        We value your input and contributions as an open-source community.
+                    </p>
+                    <a href="https://github.com/pr4jwal-19/SCOR/tree/issues" target="_blank"
+                       class="inline-flex justify-center items-center py-2.5 px-5 text-base font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
+                        Open GitHub Issue
+                        <svg class="w-5 h-5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                        </svg>
+                    </a>
+                </div>
+            </section>
+
+
+        </div>
+        <div class="bg-gradient-to-b from-blue-50 to-transparent dark:from-blue-900 w-full h-full absolute top-0 left-0 z-0"></div>
+    </section>
+
 </div>
 <script>
     console.log('Hello from Contact Page');
