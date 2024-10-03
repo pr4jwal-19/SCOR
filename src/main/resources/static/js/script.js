@@ -1,5 +1,4 @@
 
-
 console.log("Script Loaded");
 
 // initial theme

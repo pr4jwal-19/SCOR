@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html   data-th-replace="~{base::parent(~{::#content},~{::#main-title},~{::script},~{})}"
+        lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title id="main-title">Announcement</title>
+</head>
+<body>
+<div id="content">
+  <section class="relative bg-white dark:bg-gray-900 bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern.svg')] dark:bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern-dark.svg')]">
+    <!-- Background Gradient -->
+    <div class="absolute inset-0 bg-gradient-to-b from-blue-50 to-transparent dark:from-blue-900 w-full h-full z-0"></div>
+
+    <!-- Announcement Content -->
+    <div class="relative z-10 py-16 px-6 mx-auto max-w-screen-xl text-center">
+      <div class="p-6 rounded-lg shadow-lg bg-white dark:bg-gray-800">
+        <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-8">🚀 Exciting Announcements!</h2>
+
+        <!-- New Features Section -->
+        <div class="mb-12">
+          <h3 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-4">🔥 New Features</h3>
+          <ul class="list-disc list-inside text-left text-gray-700 dark:text-gray-300">
+            <li>✨ Enhanced content organization with auto-categorization.</li>
+            <li>🔍 Search content faster with the newly optimized search feature.</li>
+            <li>🔗 Add social media links and notes in one place.</li>
+            <li>📱 Mobile-friendly design for better accessibility on the go.</li>
+          </ul>
+        </div>
+
+        <!-- Giveaways Section -->
+        <div class="mb-12">
+          <h3 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-4">🎁 Exciting Giveaways</h3>
+          <p class="text-gray-700 dark:text-gray-300 mb-4">
+            We're giving away free premium features! Sign up now and stand a chance to get:
+          </p>
+          <ul class="list-disc list-inside text-left text-gray-700 dark:text-gray-300">
+            <li>🚀 1 Year Free Subscription to our Premium Plan.</li>
+            <li>🎉 Exclusive early access to upcoming features.</li>
+            <li>🏆 Participate in our beta testing program for the next big release.</li>
+          </ul>
+        </div>
+
+        <!-- Call-to-Action Button -->
+        <div class="mt-8">
+          <a data-th-href="@{'/signup'}"
+             class="px-6 py-3 text-lg text-white bg-blue-700 rounded-lg shadow-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            Sign Up for Giveaways
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+<script>
+  console.log('Hello from Announcement Page');
+</script>
+<script>
+  console.log('Hope this development phase will be completed soon');
+</script>
+</body>
+</html>

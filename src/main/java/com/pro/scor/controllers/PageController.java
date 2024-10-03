@@ -28,7 +28,7 @@ public class PageController {
     // This is a controller handler method that'll return a view named home
     // for the request URL /home
     @RequestMapping("/home")
-    public String home(Model model) {
+    public String home() {
         // should return a view named home
         // templates → home.html
         return "home";
@@ -47,6 +47,11 @@ public class PageController {
     @RequestMapping("/contact")
     public String contact() {
         return "contact";
+    }
+    // announcement route
+    @RequestMapping("/announcement")
+    public String announcement() {
+        return "announcement";
     }
     // Login route
     @RequestMapping( "/login")

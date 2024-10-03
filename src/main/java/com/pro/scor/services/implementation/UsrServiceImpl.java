@@ -24,7 +24,7 @@ public class UsrServiceImpl implements UserService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    private Logger logger = LoggerFactory.getLogger(this.getClass());
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Override
     public User saveUser(User user) {
@@ -84,5 +84,10 @@ public class UsrServiceImpl implements UserService {
     @Override
     public Optional<List<User>> getAllUsers() {
         return Optional.empty();
+    }
+
+    @Override
+    public User getUserByEmail(String email) {
+        return userRepo.findByEmail(email).orElse(null);
     }
 }

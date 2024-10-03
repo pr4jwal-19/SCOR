@@ -14,7 +14,7 @@ public interface UserService {
     boolean isUserPresent(String userId);
     boolean isEmailPresent(String email);
     Optional<List<User>> getAllUsers();
-
+    User getUserByEmail(String email);
     // Add more methods as per requirement
 
 }

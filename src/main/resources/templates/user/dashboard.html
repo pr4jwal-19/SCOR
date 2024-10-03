@@ -1,20 +1,32 @@
+
+
 <!DOCTYPE html>
-<html lang="en">
+<html data-th-replace="~{base::parent(~{::#content},~{::#main-title},~{::script},~{})}"
+      lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Dashboard</title>
+    <title id="main-title" data-th-text="${userLogged.sUserName}+' : SCOR'">Profile</title>
 </head>
 <body>
-<h1>This is User Dashboard</h1>
-<form data-th-action="@{'/logout'}" method="post" style="display: inline;">
-    <button type="submit" id="logout-button"
-            class="text-white bg-red-700 hover:bg-red-800 focus:ring-4
-            focus:outline-none focus:ring-red-300 font-medium rounded-lg
-            text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700
-            dark:focus:ring-red-800">
-        Logout
-    </button>
-</form>
+<div id="content">
 
+    <!-- If the user is logged in: sidebar -->
+    <div data-th-if="${userLogged}">
+        <div data-th-replace="~{user/sidebar :: user-sidebar}">
+
+        </div>
+    </div>
+
+    <div class="pl-64 pt-16" style="height: 1000px">
+        <div class="flex flex-col justify-center items-center">
+            <h1 class="text-5xl">This is User Dashboard</h1>
+            <h1 class="text-xl">User is Logged In</h1>
+        </div>
+    </div>
+
+</div>
+<script>
+    console.log('Hello from Dashboard Page');
+</script>
 </body>
 </html>

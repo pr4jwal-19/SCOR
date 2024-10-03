@@ -77,7 +77,7 @@ public class SecurityConfig {
             login.loginPage("/login");
 
             login.loginProcessingUrl("/authenticate")
-                    .defaultSuccessUrl("/user/dashboard")
+                    .defaultSuccessUrl("/user/profile")
                     .failureForwardUrl("/login?error=true");
 
             login.usernameParameter("email");

@@ -97,7 +97,7 @@ public class OAuthSuccessHandler implements AuthenticationSuccessHandler {
         }
 
         // Redirect to the dashboard page
-        response.sendRedirect("/user/dashboard");
+        response.sendRedirect("/user/profile");
 
     }
 

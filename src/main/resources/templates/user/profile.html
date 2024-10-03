@@ -1,10 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html data-th-replace="~{base::parent(~{::#content},~{::#main-title},~{::script},~{})}"
+      lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Profile</title>
+    <title id="main-title" data-th-text="${userLogged.sUserName}+' : SCOR'">Profile</title>
 </head>
 <body>
-<h1>This is User Profile</h1>
+<div id="content">
+
+    <!-- If the user is logged in: sidebar -->
+    <div data-th-if="${userLogged}">
+        <div data-th-replace="~{user/sidebar :: user-sidebar}">
+
+        </div>
+    </div>
+
+    <div class="pl-64 pt-16" style="height: 1000px">
+    <div class="flex flex-col justify-center items-center">
+        <h1 class="text-5xl">This is User Profile</h1>
+        <h1 class="text-xl">User is Logged In</h1>
+    </div>
+</div>
+
+</div>
+<script>
+    console.log('Hello from Profile  Page');
+</script>
 </body>
 </html>
